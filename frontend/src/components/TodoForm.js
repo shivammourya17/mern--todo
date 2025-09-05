@@ -8,7 +8,7 @@ function TodoForm() {
   const addTodo = async (e) => {
     e.preventDefault();
     if (!text) return;
-    await axios.post(`${API}/todos`, { text });
+    await axios.post(`${API}/api/todos`, { text });
     setText("");
     window.location.reload();
   };

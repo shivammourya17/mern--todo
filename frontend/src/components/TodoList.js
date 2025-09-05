@@ -10,16 +10,16 @@ function TodoList() {
   const API = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
-    axios.get(`${API}/todos`).then((res) => setTodos(res.data));
+    axios.get(`${API}/api/todos`).then((res) => setTodos(res.data));
   }, [API]);
 
   const toggleTodo = async (id) => {
-    await axios.put(`${API}/todos/${id}`);
+    await axios.put(`${API}/api/todos/${id}`);
     window.location.reload();
   };
 
   const deleteTodo = async (id) => {
-    await axios.delete(`${API}/todos/${id}`);
+    await axios.delete(`${API}/api/todos/${id}`);
     window.location.reload();
   };
 
@@ -29,7 +29,7 @@ function TodoList() {
   };
 
   const saveEdit = async (id) => {
-    await axios.put(`${API}/todos/edit/${id}`, { text: editText });
+    await axios.put(`${API}/api/todos/edit/${id}`, { text: editText });
     setEditingId(null);
     setEditText("");
     window.location.reload();
